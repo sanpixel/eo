@@ -17,6 +17,16 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', service: 'eo', port: PORT });
 });
 
+// Config endpoint for frontend to get Supabase settings at runtime
+app.get('/api/config', (req, res) => {
+  res.json({
+    supabaseUrl: process.env.REACT_APP_SUPABASE_URL,
+    supabaseAnonKey: process.env.REACT_APP_SUPABASE_ANON_KEY,
+    siteUrl: process.env.REACT_APP_SITE_URL || `http://localhost:${PORT}`,
+    deployUrl: process.env.SITE_URL
+  });
+});
+
 // Catch-all handler: send back React's index.html file for any non-API routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
