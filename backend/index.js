@@ -20,9 +20,9 @@ app.get('/api/health', (req, res) => {
 // Config endpoint for frontend to get Supabase settings at runtime
 app.get('/api/config', (req, res) => {
   res.json({
-    supabaseUrl: process.env.REACT_APP_SUPABASE_URL,
-    supabaseAnonKey: process.env.REACT_APP_SUPABASE_ANON_KEY,
-    siteUrl: process.env.REACT_APP_SITE_URL || `http://localhost:${PORT}`,
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
+    siteUrl: process.env.SITE_URL || `http://localhost:${PORT}`,
     deployUrl: process.env.SITE_URL
   });
 });

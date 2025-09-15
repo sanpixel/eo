@@ -30,4 +30,5 @@ jobs:
           --allow-unauthenticated \
           --memory 1Gi \
           --cpu 1 \
-          --max-instances 10
+          --max-instances 10 \
+          --set-env-vars="SUPABASE_URL=${{ secrets.SUPABASE_URL }},SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}"
