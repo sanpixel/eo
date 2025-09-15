@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config();
+require('dotenv').config({ path: '../.env' });
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -22,7 +22,7 @@ app.get('/api/config', (req, res) => {
   res.json({
     supabaseUrl: process.env.SUPABASE_URL,
     supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
-    siteUrl: process.env.SITE_URL || `http://localhost:${PORT}`,
+    siteUrl: process.env.SITE_URL || `http://localhost:3000`,
     deployUrl: process.env.SITE_URL
   });
 });
